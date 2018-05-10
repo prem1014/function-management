@@ -1,0 +1,16 @@
+.left-aside, .right-aside {
+    background-color: #fff8f8;
+}
+.left-aside {
+    margin-right: 17px;
+}
+@media only screen and (min-width: 1024px) {
+    .right-aside {
+        max-width: 82%;
+    }
+}
+@media only screen and (max-width:1024px) {
+    .right-aside {
+        margin-top: 10px;
+    }
+}

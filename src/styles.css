@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  background: #607D8B;
+}
+h1, h2, h3, h4, h5, h6, span, p, label{
+  color: #f4f4f5;
+}
+.btn-info {
+  background-color: #38dcf5;
+  border-color: #38dcf5;
+}
+.bg-dark {
+  background-color: #FF9800!important;
+}
+.top-bottom-margin {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.ng-valid:not(form){
+    border-left: 10px solid #42A948 !important; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 10px solid #a94442 !important; /* red */
+  }
+  .right-aside h1, h2, h3, h4, h5, label, span, p {
+    color: black;
+}

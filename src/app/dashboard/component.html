@@ -1,0 +1,29 @@
+<div class="row top-bottom-margin">
+    <div class="col-lg-2 col-md-2 col-sm-2 col-12 left-aside">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['add-new']">Add Service</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Update Service</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Delete Service</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">View Booking</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-10 col-12 right-aside">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                <h2 class="text-center">Your services</h2>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+
+            </div>
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+</div>
