@@ -14,38 +14,32 @@ export class AddNewComponent implements OnInit {
             {
                 id: 'taxi',
                 name: 'Taxi'
-            }
-        ]
-        this.service.vehicleType = [
-            {
-                id: 'bloro',
-                name: 'Bloro'
             },
             {
-                id: 'scorpiyo',
-                name: 'Scorpiyo'
+                id: 'marriageHall',
+                name: 'Marriage Hall'
             }
         ]
         this.service.district = [
             {
                 id: 'gop',
-                name: 'Gopalganj'
+                name: 'Gopalganj',
+                stateId: 'BH'
             },
             {
                 id: 'cpr',
-                name: 'Chapra'
+                name: 'Chapra',
+                stateId: 'BH'
             }
         ]
-        this.service.block = [
+        this.service.state = [
             {
-                id: 'baik',
-                name: 'Baikunthpur',
-                distId: 'gop'
+                id: 'BH',
+                name: 'Bihar',
             },
             {
-                id: 'sidh',
-                name: 'Sidhwaliya',
-                distId: 'gop'
+                id: 'GJ',
+                name: 'Gujrat',
             }
         ]
     }

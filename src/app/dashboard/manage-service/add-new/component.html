@@ -9,7 +9,7 @@
     </div>
     <div class="col-lg-8 col-md-8 col-sm-8 col-12">
         <form>
-            <div class="row">
+            <div class="row form-group">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                     <label>Service Type:</label>
                     <select class="form-control">
@@ -20,20 +20,11 @@
                     </select>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                    <label>Veichle Type:</label>
-                    <select class="form-control">
-                        <option [ngValue]="select">-- Select--</option>
-                        <option *ngFor="let vehicle of service.vehicleType" value="{{vehicle.id}}">
-                            {{vehicle.name}}
-                        </option>
-                    </select>
+                    <label>Service Name:</label>
+                    <input type="text" class="form-control"/>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                    <label>Veichle No:</label>
-                    <input type="text" class="form-control">
-                </div>
+            <div class="row form-group">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                     <label>District:</label>
                     <select class="form-control">
@@ -43,24 +34,21 @@
                         </option>
                     </select>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                    <label>Block:</label>
-                    <select class="form-control">
-                        <option [ngValue]="select">-- Select--</option>
-                        <option *ngFor="let block of service.block" value="{{block.id}}">
-                            {{block.name}}
-                        </option>
-                    </select>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                    <label>Village Name:</label>
-                    <input type="text" class="form-control">
-
+                        <label>State:</label>
+                        <select class="form-control">
+                            <option [ngValue]="select">-- Select--</option>
+                            <option *ngFor="let state of service.state" value="{{state.id}}">
+                                {{state.name}}
+                            </option>
+                        </select>
                 </div>
             </div>
             <div class="row form-group">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                        <label>Address:</label>
+                        <textarea class="form-control"></textarea>
+                </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                     <label>Pin Code:</label>
                     <input type="text" class="form-control">

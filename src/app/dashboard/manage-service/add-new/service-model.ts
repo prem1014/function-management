@@ -3,7 +3,7 @@ export class Service {
     public vehicleType: any = [];
     public vehicleNo: string;
     public district: any = [];
-    public block: any = [];
+    public state: any = [];
     public villageName: string;
     public pinCode: string;
 }
