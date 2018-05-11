@@ -1,5 +1,5 @@
 .left-aside, .right-aside {
-    background-color: #fff8f8;
+    background-color: white;
 }
 .left-aside {
     margin-right: 17px;
@@ -13,4 +13,8 @@
     .right-aside {
         margin-top: 10px;
     }
+}
+
+h2,h3,h4{
+    text-align: center;
 }

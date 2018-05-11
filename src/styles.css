@@ -1,16 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  background: #607D8B;
+  background: white;
 }
 h1, h2, h3, h4, h5, h6, span, p, label{
-  color: #f4f4f5;
+  color: black;
 }
 .btn-info {
   background-color: #38dcf5;
   border-color: #38dcf5;
 }
 .bg-dark {
-  background-color: #FF9800!important;
+  background-color: rgb(156, 156, 156) !important;
 }
 .top-bottom-margin {
   margin-top: 10px;
