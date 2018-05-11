@@ -11,5 +11,15 @@ export const route: Routes = [
                 loadChildren:'app/dashboard/manage-service/add-new/module#AddNewModule'
             }
         ]
+    },
+    {
+        path: '',
+        component: DashboardComponent,
+        children: [
+            {
+                path: 'view-booking',
+                loadChildren:'app/dashboard/manage-service/view-booking/module#ViewBookingModule'
+            }
+        ]
     }
 ]

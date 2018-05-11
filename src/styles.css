@@ -26,3 +26,11 @@ h1, h2, h3, h4, h5, h6, span, p, label{
   .right-aside h1, h2, h3, h4, h5, label, span, p {
     color: black;
 }
+
+.mar-top-5 {
+  margin-top: 5px;
+}
+
+.mar-top-10 {
+  margin-top: 10px;
+}
