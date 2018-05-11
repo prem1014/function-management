@@ -9,6 +9,7 @@ import { APIService } from '../../../_core/api-service';
 
 export class AddNewComponent implements OnInit {
     public service = new Service();
+    public serviceDetails = {}
     constructor(private api: APIService){
         this.service.serviceType = [
             {
@@ -46,6 +47,6 @@ export class AddNewComponent implements OnInit {
     ngOnInit() {}
 
     public saveService(){
-        this.api.saveService(this.service);
+        this.api.saveService(this.serviceDetails);
     }
 }
