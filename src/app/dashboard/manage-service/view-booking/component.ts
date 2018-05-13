@@ -10,6 +10,24 @@ export class ViewBookingComponent implements OnInit {
     protected viewBookingData: any = [];
     public popupData: any;
     public isPopupDisplay: boolean = false;
+    public self;
+    constructor(){
+        this.self = this;     
+    }
+   
+    columnDefs = [
+        {headerName: 'Reference Id', field: 'referenceId' },
+        {headerName: 'Service Name', field: 'serviceName' },
+        {headerName: 'Service Type', field: 'serviceType'},
+        {headerName: 'Customer Name', field: 'customerName' },
+        {headerName: 'Phone Number', field: 'phoneNumber' },
+        {headerName: 'Email Address', field: 'emailAddress'},
+        {headerName: 'Status', field: 'status', hide: true},
+        {headerName: 'Distict', field: 'distict', hide: true},
+        {headerName: 'State', field: 'state', hide: true},
+        {headerName: 'Pin Code', field: 'pinCode', hide: true},
+        {headerName: 'Action', field: 'action', cellRenderer: this.makeIconFunction.bind(this)}
+    ];
 
     ngOnInit() {
 
@@ -34,7 +52,8 @@ export class ViewBookingComponent implements OnInit {
                 status: 'Pending',
                 distict: 'Chapra',
                 state: 'Bihar',
-                pinCode: '458798'
+                pinCode: '458798',
+                action: ''
             },
             {
                 referenceId: 'BT2',
@@ -46,7 +65,8 @@ export class ViewBookingComponent implements OnInit {
                 status: 'Pending',
                 distict: 'Chapra',
                 state: 'Bihar',
-                pinCode: '458798' 
+                pinCode: '458798',
+                action: '' 
             }
         ]
     }
@@ -55,12 +75,16 @@ export class ViewBookingComponent implements OnInit {
         
     }
 
-    protected viewService(itemData: any) {
+    public viewService(itemData: any) {
         this.isPopupDisplay = true;
         this.popupData = itemData;
         this.popupData.popupType = "viewDetail";
         this.popupData.buttonText = "Confirm";
-        console.log(this.popupData);
+        setTimeout(function() {
+            console.log(document.getElementById(itemData.referenceId));
+            document.getElementById(itemData.referenceId).style.display = "block";
+            console.log(this.popupData);
+        });
     }
 
     public popupClose() {
@@ -71,4 +95,15 @@ export class ViewBookingComponent implements OnInit {
     public confirmClicked() {
         console.log("Confirmed");
     }
+
+    makeIconFunction(params) {
+        console.log(params);
+        var eSpan = document.createElement('span');
+        eSpan.innerHTML = '<i class="far fa-eye" data-toggle="modal" [attr.data-target]="#' + params.data.referenceId + '"></i>';
+        eSpan.addEventListener('click', () => {
+            this.viewService(params.data);
+        });
+        return eSpan;
+    }
 }
+
