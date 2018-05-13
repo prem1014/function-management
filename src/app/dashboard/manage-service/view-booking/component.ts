@@ -31,6 +31,7 @@ export class ViewBookingComponent implements OnInit {
                 customerName: 'prem',
                 phoneNumber: '+44789789789',
                 emailAddress: 'premprakash@gmail.com',
+                status: 'Pending',
                 distict: 'Chapra',
                 state: 'Bihar',
                 pinCode: '458798'
@@ -42,6 +43,7 @@ export class ViewBookingComponent implements OnInit {
                 customerName: 'prem',
                 phoneNumber: '+44789789789',
                 emailAddress: 'premprakash@gmail.com',
+                status: 'Pending',
                 distict: 'Chapra',
                 state: 'Bihar',
                 pinCode: '458798' 
@@ -56,12 +58,17 @@ export class ViewBookingComponent implements OnInit {
     protected viewService(itemData: any) {
         this.isPopupDisplay = true;
         this.popupData = itemData;
-        this.popupData.popupType = "viewDetail"
+        this.popupData.popupType = "viewDetail";
+        this.popupData.buttonText = "Confirm";
         console.log(this.popupData);
     }
 
     public popupClose() {
-        console.log("here reached");    
+        console.log("Popup Close");    
         this.isPopupDisplay = false;
+    }
+
+    public confirmClicked() {
+        console.log("Confirmed");
     }
 }

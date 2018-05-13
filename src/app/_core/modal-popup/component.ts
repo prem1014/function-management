@@ -10,6 +10,8 @@ export class PopupComponent implements OnInit {
     @Input() popupDisplay: any;
     public displayItem: any;
     @Output() viewDetailEvent = new EventEmitter();
+    @Output() viewDetailConfirmEvent = new EventEmitter();
+    public buttonText: string;
 
     ngOnInit() {
         console.log("Popup DIsplay");    
@@ -52,8 +54,14 @@ export class PopupComponent implements OnInit {
                 {
                     displayName: "Pin Code",
                     displayValue: this.popupDisplay.pinCode
+                },
+                {
+                    displayName: "Status",
+                    displayValue: this.popupDisplay.status
                 }
-            ]
+            ];
+
+            this.buttonText = this.popupDisplay.buttonText;
         }
     }
 
@@ -61,5 +69,12 @@ export class PopupComponent implements OnInit {
         if(this.popupDisplay.popupType == "viewDetail") {
             this.viewDetailEvent.emit();
         }
+    }
+
+    public confirmClicked() {
+        if(this.popupDisplay.popupType == "viewDetail") {
+            this.popupClose();
+            this.viewDetailConfirmEvent.emit();     
+        }  
     }
 }
