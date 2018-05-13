@@ -9,6 +9,7 @@ import { LoginModel } from '../data-model/login-model';
 })
 
 export class LoginComponent implements OnInit {
+    private userInfo;
     private loginForm: FormGroup; // -- loiginForm is of type FormGroup
     public loginModel = new LoginModel('', '');
 
@@ -28,5 +29,11 @@ export class LoginComponent implements OnInit {
     public login (): void {
         this.loginModel.userId = this.loginForm.value.userId;
         this.loginModel.password = this.loginForm.value.password;
+        this.userInfo = {
+            userName: 'Guest',
+            role: 'provider'
+        }
+        sessionStorage.setItem('isLoggedIn', 'true');
+        sessionStorage.setItem('userInfo', JSON.stringify(this.userInfo));
     }
 }

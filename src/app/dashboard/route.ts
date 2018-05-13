@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { DashboardComponent } from './component';
-
+ import { AuthGuard } from '../_core/auth-guard';
 export const route: Routes = [
     {
         path: '',
@@ -8,16 +8,12 @@ export const route: Routes = [
         children: [
             {
                 path: 'add-new',
+                canActivate: [AuthGuard],
                 loadChildren:'app/dashboard/manage-service/add-new/module#AddNewModule'
-            }
-        ]
-    },
-    {
-        path: '',
-        component: DashboardComponent,
-        children: [
+            },
             {
                 path: 'view-booking',
+                canActivate: [AuthGuard],
                 loadChildren:'app/dashboard/manage-service/view-booking/module#ViewBookingModule'
             }
         ]

@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { routes } from './route';
 import { APIService } from './_core/api-service';
+import { AuthGuard } from './_core/auth-guard';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { APIService } from './_core/api-service';
     ReactiveFormsModule,
     RouterModule.forRoot(routes, {useHash: true})
   ],
-  providers: [APIService],
+  providers: [APIService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
