@@ -9,16 +9,14 @@ export const route: Routes = [
             {
                 path: 'add-new',
                 loadChildren:'app/dashboard/manage-service/add-new/module#AddNewModule'
-            }
-        ]
-    },
-    {
-        path: '',
-        component: DashboardComponent,
-        children: [
+            },
             {
                 path: 'view-booking',
                 loadChildren:'app/dashboard/manage-service/view-booking/module#ViewBookingModule'
+            },
+            {
+                path: 'update',
+                loadChildren:'app/dashboard/manage-service/update/module#UpdateModule'
             }
         ]
     }
