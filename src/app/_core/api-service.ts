@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 export class APIService {
     public serviceDetail;
     public redirectUrl;
-    constructor(){}
+    constructor() {}
 
     public saveService(serviceDetail){
         this.serviceDetail = serviceDetail;

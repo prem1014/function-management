@@ -9,13 +9,13 @@ export const route: Routes = [
             {
                 path: 'add-new',
                 canActivate: [AuthGuard],
-                loadChildren:'app/dashboard/manage-service/add-new/module#AddNewModule'
+                loadChildren: 'src/app/dashboard/manage-service/add-new/module#AddNewModule'
             },
             {
                 path: 'view-booking',
                 canActivate: [AuthGuard],
-                loadChildren:'app/dashboard/manage-service/view-booking/module#ViewBookingModule'
+                loadChildren: 'src/app/dashboard/manage-service/view-booking/module#ViewBookingModule'
             }
         ]
     }
-]
+];

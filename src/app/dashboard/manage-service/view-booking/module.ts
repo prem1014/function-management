@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { PopupModule } from '../../../_core/modal-popup/module';
 import { AgGridModule } from 'ag-grid-angular';
 
-import { ViewBookingComponent } from './component'
+import { ViewBookingComponent } from './component';
 import { route } from './route';
 
 @NgModule({
@@ -20,6 +20,4 @@ import { route } from './route';
     exports: [RouterModule]
 })
 
-export class ViewBookingModule {
-    
-}
+export class ViewBookingModule {}

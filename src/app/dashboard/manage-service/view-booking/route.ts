@@ -7,4 +7,4 @@ export const route: Routes = [
         path: '',
         component: ViewBookingComponent
     }
-]
+];

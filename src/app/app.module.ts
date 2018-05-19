@@ -17,7 +17,7 @@ import { AuthGuard } from './_core/auth-guard';
     ReactiveFormsModule,
     RouterModule.forRoot(routes, {useHash: true})
   ],
-  providers: [APIService,AuthGuard],
+  providers: [APIService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

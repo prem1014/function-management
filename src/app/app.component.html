@@ -1,17 +1,17 @@
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <a class="navbar-brand" href="#">Event Managemnt</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['dashboard']"><i class="fas fa-clipboard-list"></i>
-          </a>
-        </li> 
-      </ul>
-    </div>  
-  </nav>
-  <div class="container-fluid">
-    <router-outlet></router-outlet>
-  </div>
+  <a class="navbar-brand" href="#">Event Managemnt</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['dashboard']"><i class="fas fa-clipboard-list"></i>
+        </a>
+      </li> 
+    </ul>
+  </div>  
+</nav>
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>

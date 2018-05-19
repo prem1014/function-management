@@ -13,17 +13,17 @@ export class LoginComponent implements OnInit {
     private loginForm: FormGroup; // -- loiginForm is of type FormGroup
     public loginModel = new LoginModel('', '');
 
-    constructor(private fb: FormBuilder){
+    constructor(private fb: FormBuilder) {
         this.createLoginForm();
         console.log(this.loginForm);
     }
-    ngOnInit(){}
+    ngOnInit() {}
 
     private createLoginForm (): void {
         this.loginForm = this.fb.group({
             userId: ['', Validators.required ],
             password: ['', Validators.required ]
-        })
+        });
     }
 
     public login (): void {
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
         this.userInfo = {
             userName: 'Guest',
             role: 'provider'
-        }
+        };
         sessionStorage.setItem('isLoggedIn', 'true');
         sessionStorage.setItem('userInfo', JSON.stringify(this.userInfo));
     }

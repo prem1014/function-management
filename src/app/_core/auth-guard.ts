@@ -14,22 +14,20 @@ export class AuthGuard implements CanActivate {
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-        let url: string = state.url;
+        const url: string = state.url;
         return this.checkLogin(url);
     }
     private checkLogin(url: string): boolean {
         this.user = JSON.parse(sessionStorage.getItem('userInfo'));
         if (sessionStorage.getItem('isLoggedIn') === 'true' && this.user.role === 'provider') {
             if (url === '/dashboard/add-new' || url === '/dashboard/view-booking') {
-                return true
+                return true;
             }
-        }
-        else if (sessionStorage.getItem('isLoggedIn') === 'true' && this.user.role === 'consumer') {
+        } else if (sessionStorage.getItem('isLoggedIn') === 'true' && this.user.role === 'consumer') {
             if (url === '/dashboard/add-new' || url === '/dashboard/view-booking') {
                 this.router.navigate(['/401']);
                 return true;
-            }
-            else {
+            } else {
                 return true;
             }
         }
