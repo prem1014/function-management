@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { routes } from './route';
 import { APIService } from './_core/api-service';
 import { AuthGuard } from './_core/auth-guard';
+import { ToasterService } from './_core/toaster-service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { AuthGuard } from './_core/auth-guard';
     HttpClientModule,
     RouterModule.forRoot(routes, {useHash: true})
   ],
-  providers: [APIService, AuthGuard],
+  providers: [APIService, AuthGuard, ToasterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

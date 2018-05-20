@@ -11,6 +11,9 @@ export class APIService {
 
     }
 
+    public authenticateUser(user) {
+        return this.http.post(this.apiUrl + 'login', user);
+    }
     public saveService(serviceDetail) {
         this.serviceDetail = serviceDetail;
     }
