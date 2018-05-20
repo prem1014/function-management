@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Service } from './service-model';
 import { APIService } from '../../../_core/api-service';
 
@@ -9,7 +9,8 @@ import { APIService } from '../../../_core/api-service';
 
 export class AddNewComponent implements OnInit {
     public service = new Service();
-    public serviceDetails = {};
+    public serviceDetails = {id: '', name: ''};
+    @ViewChild('addService') addService;
     constructor(private api: APIService) {
         this.service.serviceType = [
             {
@@ -48,8 +49,17 @@ export class AddNewComponent implements OnInit {
         this.getStateByCountryId('IND');
     }
 
-    public saveService() {
-        this.api.saveService(this.serviceDetails);
+    public saveService(addService) {
+        this.serviceDetails.id = this.serviceDetails.name + '_' + Math.floor(Math.random() * 20);
+        this.api.saveService(this.serviceDetails).subscribe((data: any) => {
+            if(data.success) {
+                console.log(data);
+                alert(data.message);     
+                this.addService.reset();
+            } else {
+                alert(data.message);   
+            }    
+        });
     }
 
     private getStateByCountryId(id): void {
