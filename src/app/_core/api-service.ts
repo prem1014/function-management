@@ -15,7 +15,7 @@ export class APIService {
         return this.http.post(this.apiUrl + 'login', user);
     }
     public saveService(serviceDetail) {
-        this.serviceDetail = serviceDetail;
+        return this.http.post(this.apiUrl + 'provider',serviceDetail);
     }
 
     public getService() {
