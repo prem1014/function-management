@@ -9,8 +9,8 @@ import { APIService } from '../../../_core/api-service';
 
 export class AddNewComponent implements OnInit {
     public service = new Service();
-    public serviceDetails = {}
-    constructor(private api: APIService){
+    public serviceDetails = {};
+    constructor(private api: APIService) {
         this.service.serviceType = [
             {
                 id: 'taxi',
@@ -20,7 +20,7 @@ export class AddNewComponent implements OnInit {
                 id: 'marriageHall',
                 name: 'Marriage Hall'
             }
-        ]
+        ];
         this.service.district = [
             {
                 id: 'gop',
@@ -32,7 +32,7 @@ export class AddNewComponent implements OnInit {
                 name: 'Chapra',
                 stateId: 'BH'
             }
-        ]
+        ];
         this.service.state = [
             {
                 id: 'BH',
@@ -42,11 +42,28 @@ export class AddNewComponent implements OnInit {
                 id: 'GJ',
                 name: 'Gujrat',
             }
-        ]
+        ];
     }
-    ngOnInit() {}
+    ngOnInit() {
+        this.getStateByCountryId('IND');
+    }
 
-    public saveService(){
+    public saveService() {
         this.api.saveService(this.serviceDetails);
+    }
+
+    private getStateByCountryId(id): void {
+        this.api.getStateByCountryId(id)
+            .subscribe(data => {
+                console.log(data);
+                this.service.state = data;
+            });
+    }
+
+    public getDistrictByStateId(id) {
+        this.api.getDistrictByStateId(id)
+        .subscribe(data => {
+            this.service.district = data;
+        });
     }
 }

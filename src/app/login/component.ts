@@ -5,7 +5,7 @@ import { LoginModel } from '../data-model/login-model';
 @Component({
     selector: 'app-login',
     templateUrl: './component.html',
-    styleUrls: ['./component.css']
+    styleUrls: ['./component.scss']
 })
 
 export class LoginComponent implements OnInit {

@@ -6,7 +6,9 @@ import { route } from './route';
 
 @NgModule({
     declarations: [DashboardComponent],
-    imports: [RouterModule.forChild(route)],
+    imports: [
+        RouterModule.forChild(route)
+    ],
     exports: [RouterModule]
 })
 
