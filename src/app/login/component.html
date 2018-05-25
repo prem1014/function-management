@@ -2,7 +2,7 @@
     <div class="col-lg-3 col-md-3 col-sm-3">
 
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-12 login-form">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-12 bgc-shadow">
         <h1 class="text-center">Login to get access</h1>
         <form [formGroup]="loginForm">
             <div class="form-group">
@@ -17,7 +17,8 @@
                     <label class="center-block"></label>
                     <button type="submit" (click)="login()" class="btn btn-info" [disabled]="!loginForm.valid || loading" style="margin-right: 5px;">Login</button>
                     <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
-                </div>
+                    <a [routerLink]="['signup']">Not a member ? Sign Up Here</a>
+            </div>
         </form>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-3">

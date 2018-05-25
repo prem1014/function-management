@@ -46,3 +46,8 @@ h1, h2, h3, h4, h5, h6, span, p, label{
 .cursor-pointer-set {
   cursor: pointer;
 }
+
+.bgc-shadow{
+  box-shadow: 0px 0px 28px #dcdcdc;
+  border-radius: 10px;
+}
