@@ -3,11 +3,20 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
     {
         path: 'login',
-        loadChildren: 'app/login/module#LoginModule'
+        loadChildren: 'src/app/login/module#LoginModule'
+    },
+    {
+        path: 'signup',
+        loadChildren: 'src/app/sign-up/module#SignUpModule'
     },
     {
         path: 'dashboard',
-        loadChildren: 'app/dashboard/module#DashboardModule'
+        loadChildren: 'src/app/dashboard/module#DashboardModule'
     },
-    { path: '', redirectTo: 'login', pathMatch: 'full' }
-]
+    {
+        path: 'customer-dashboard',
+        loadChildren: 'src/app/customer-dashboard/module#CustomerDashboardModule'
+    },
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: 'login/signup', redirectTo: 'signup'}
+];

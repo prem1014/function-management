@@ -3,19 +3,19 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { LoginComponent } from './component';
+import { SignUpComponent } from './component';
 import { route } from './route';
-import { ToasterModule } from '../_widgets/toaster/module';
 
 @NgModule({
-    declarations: [LoginComponent],
+    declarations: [SignUpComponent],
     imports: [
         ReactiveFormsModule,
         CommonModule,
-        ToasterModule,
         RouterModule.forChild(route)
     ],
-    exports: [RouterModule]
+    exports: [
+        RouterModule
+    ]
 })
 
-export class LoginModule {}
+export class SignUpModule {}

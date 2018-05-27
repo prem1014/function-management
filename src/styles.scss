@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import "node_modules/fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.css";
 @import "~ag-grid/dist/styles/ag-grid.css";
 @import "~ag-grid/dist/styles/ag-theme-fresh.css";
 
@@ -45,4 +45,9 @@ h1, h2, h3, h4, h5, h6, span, p, label{
 
 .cursor-pointer-set {
   cursor: pointer;
+}
+
+.bgc-shadow{
+  box-shadow: 0px 0px 28px #dcdcdc;
+  border-radius: 10px;
 }
