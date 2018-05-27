@@ -43,6 +43,8 @@ export class UpdateComponent
                 name: 'Gujrat',
             }
         ]
+        
+        
     }
     ngOnInit(){
         this.getServiceDetails();
@@ -51,6 +53,10 @@ export class UpdateComponent
     private getServiceDetails(){
         this.serviceDetails = {
             serviceType: 'marriageHall',
+            state:'BH',
+            district:'gop',
+            servicename:'Wedding',
+            fullAdress:'Vill-Faizullahpur,P.S-Baikunthpur,Dist.-Gopalganj,Bihar',
             pinCode: '841420'
         } 
     }

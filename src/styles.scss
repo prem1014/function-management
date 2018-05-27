@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~ag-grid/dist/styles/ag-grid.css";
+@import "~ag-grid/dist/styles/ag-theme-fresh.css";
+
 body {
   background: white;
 }
@@ -33,4 +37,12 @@ h1, h2, h3, h4, h5, h6, span, p, label{
 
 .mar-top-10 {
   margin-top: 10px;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.cursor-pointer-set {
+  cursor: pointer;
 }
