@@ -15,7 +15,7 @@ import { ToasterService } from '../_core/toaster-service';
 export class LoginComponent implements OnInit {
     private userInfo;
     private loginForm: FormGroup; // -- loiginForm is of type FormGroup
-    public loginModel = new LoginModel('', '');
+    public loginModel = new LoginModel('', '', '');
     public loading;
 
     constructor(private fb: FormBuilder, private api: APIService, private router: Router, private toaster: ToasterService) {
@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
         this.loading = true;
         this.loginModel.id = this.loginForm.value.userId;
         this.loginModel.password = this.loginForm.value.password;
+        this.loginModel.isAuthReq = true;
         this.userInfo = {
             userName: 'Guest',
             role: 'provider'

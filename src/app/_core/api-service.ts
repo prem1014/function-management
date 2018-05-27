@@ -29,4 +29,8 @@ export class APIService {
     public getDistrictByStateId(id) {
         return this.http.get(this.apiUrl + 'district' + '/' + id);
     }
+
+    public signup(usersDetails) {
+        return this.http.post(this.apiUrl + 'login',  usersDetails);
+    }
 }

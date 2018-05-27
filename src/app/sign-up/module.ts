@@ -5,12 +5,14 @@ import { CommonModule } from '@angular/common';
 
 import { SignUpComponent } from './component';
 import { route } from './route';
+import { ToasterModule } from '../_widgets/toaster/module';
 
 @NgModule({
     declarations: [SignUpComponent],
     imports: [
         ReactiveFormsModule,
         CommonModule,
+        ToasterModule,
         RouterModule.forChild(route)
     ],
     exports: [
