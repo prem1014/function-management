@@ -9,4 +9,3 @@ export class Service {
     public servicename:string;
     public fullAdress:string;
 }
-}
