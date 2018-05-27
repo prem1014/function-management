@@ -36,10 +36,6 @@ export class LoginComponent implements OnInit {
         this.loginModel.id = this.loginForm.value.userId;
         this.loginModel.password = this.loginForm.value.password;
         this.loginModel.isAuthReq = true;
-        this.userInfo = {
-            userName: 'Guest',
-            role: 'provider'
-        };
         sessionStorage.setItem('isLoggedIn', 'true');
         sessionStorage.setItem('userInfo', JSON.stringify(this.userInfo));
         this.api.authenticateUser(this.loginModel)
@@ -47,7 +43,8 @@ export class LoginComponent implements OnInit {
             this.loading = false;
             if (data.success) {
                 sessionStorage.setItem('token', data.token);
-                sessionStorage.setItem('user', JSON.stringify(data.user));
+                sessionStorage.setItem('user', JSON.stringify(data.payload.user));
+                this.api.saveLoggedInUser(data.payload.user);
                 this.router.navigateByUrl('/dashboard');
             } else {
                 this.toaster.error(

@@ -3,6 +3,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { routes } from './route';
@@ -18,6 +19,7 @@ import { ToasterService } from './_core/toaster-service';
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CommonModule,
     RouterModule.forRoot(routes, {useHash: true})
   ],
   providers: [APIService, AuthGuard, ToasterService],

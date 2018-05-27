@@ -9,10 +9,19 @@
         <a class="nav-link" [routerLink]="['dashboard']"><i class="fa fa-clipboard-list"></i>
         </a>
       </li> 
-      <li class="nav-item">
+      <li class="nav-item" style="border-right: 1px solid #fff; margin-right: 7px;">
         <a class="nav-link" [routerLink]="['customer-dashboard']"><i class="fa fa-address-card"></i>
         </a>
       </li>
+      <li *ngIf="isLoggedIn" class="nav-item" style="border-right: 1px solid #fff; padding-right: 7px;">
+          <span style="font-weight: bold;color: #fff;">{{user.name}}</span><br>
+          <span style="color: #fff;">{{user.email}}</span>
+        </li>
+      <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" href="#" (click)="logOut($event)">
+            <i class="fas fa-sign-out-alt"></i>Logout
+          </a>
+        </li>
     </ul>
   </div>  
 </nav>
