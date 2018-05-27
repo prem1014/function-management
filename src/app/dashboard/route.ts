@@ -14,7 +14,11 @@ export const route: Routes = [
             {
                 path: 'view-booking',
                 canActivate: [AuthGuard],
-                loadChildren: 'src/app/dashboard/manage-service/view-booking/module#ViewBookingModule'
+                loadChildren:'src/app/dashboard/manage-service/view-booking/module#ViewBookingModule'
+            },
+            {
+                path: 'update',
+                loadChildren:'src/app/dashboard/manage-service/update/module#UpdateModule'
             }
         ]
     }

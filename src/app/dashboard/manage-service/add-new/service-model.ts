@@ -6,4 +6,7 @@ export class Service {
     public state: any = [];
     public villageName: string;
     public pinCode: string;
+    public servicename:string;
+    public fullAdress:string;
+}
 }

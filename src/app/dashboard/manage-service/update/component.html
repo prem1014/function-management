@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="col-12">
+        <h3 class="text-center">Update Booking</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-2 col-md-2 col-sm-2">
+
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-12">
+        <form>
+            <div class="row form-group">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <label>Service Type:</label>
+                    <select class="form-control" required [(ngModel)]="serviceDetails.serviceType" name="serviceType">
+                        <option [ngValue]="select">-- Select--</option>
+                        <option *ngFor="let service of service.serviceType" value="{{service.id}}">
+                            {{service.name}}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <label>Service Name:</label>
+                    <input type="text" class="form-control" name="serviceName" [(ngModel)]="serviceDetails.servicename" required/>
+                </div>
+            </div>
+            <div class="row form-group">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                            <label>State:</label>
+                            <select class="form-control" required [(ngModel)]="serviceDetails.state" name="state">
+                                <option [ngValue]="select">-- Select--</option>
+                                <option *ngFor="let state of service.state" value="{{state.id}}">
+                                    {{state.name}}
+                                </option>
+                            </select>
+                    </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <label>District:</label>
+                    <select class="form-control" required [(ngModel)]="serviceDetails.district" name="district">
+                        <option [ngValue]="select">-- Select--</option>
+                        <option *ngFor="let district of service.district" value="{{district.id}}">
+                            {{district.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                        <label>Address:</label>
+                        <textarea required class="form-control" [(ngModel)]="serviceDetails.fullAdress" name="fullAdress"></textarea>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <label>Pin Code:</label>
+                    <input type="text" required class="form-control" [(ngModel)]="serviceDetails.pinCode" name="pinCode">
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-info" (click)="saveService()">Save</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2">
+
+    </div>
+</div>
