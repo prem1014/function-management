@@ -40,4 +40,8 @@ export class APIService {
     public saveLoggedInUser(user): void {
         this.user.next(user);
     }
+
+    public saveCustomerDetail(customerDetail) {
+        return this.http.post(this.apiUrl + 'customer-detail',customerDetail);
+    }    
 }

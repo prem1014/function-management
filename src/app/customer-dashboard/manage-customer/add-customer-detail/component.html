@@ -11,7 +11,7 @@
                 </div>
                 <div class="form-group">
                     <label class="center-block">Mobile: </label>
-                    <input type="text" formControlName="mobile" class="form-control">    
+                    <input formControlName="mobile" class="form-control" minlength="10" maxlength="10">  		  
                 </div>
                 <div class="form-group">
                     <label class="center-block">Email: </label>
@@ -24,6 +24,7 @@
                 <div class="form-group">
                         <button type="submit" (click)="saveCustomerDetail()" class="btn btn-info" [disabled]="!addCustomerForm.valid || loading" style="margin-right: 5px;">Save</button>
                 </div>
+                <app-toaster></app-toaster>
             </form>
         </div>            
         <div class="col-lg-3 col-md-3 col-sm-3">
