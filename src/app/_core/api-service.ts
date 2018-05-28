@@ -33,4 +33,8 @@ export class APIService {
     public signup(usersDetails) {
         return this.http.post(this.apiUrl + 'login',  usersDetails);
     }
+
+    public saveCustomerDetail(customerDetail) {
+        return this.http.post(this.apiUrl + 'customer-detail',customerDetail);
+    }
 }

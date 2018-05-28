@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToasterModule } from '../../../_widgets/toaster/module';
 
 import { AddCustomerDetailComponent } from './component';
 import { route } from './route';
@@ -11,6 +12,7 @@ import { route } from './route';
     imports: [
         CommonModule,
         ReactiveFormsModule,
+        ToasterModule,
         RouterModule.forChild(route)
     ],
     exports: [RouterModule]
