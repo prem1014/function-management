@@ -6,6 +6,10 @@ export const routes: Routes = [
         loadChildren: 'src/app/login/module#LoginModule'
     },
     {
+        path: 'search',
+        loadChildren: 'src/app/search/module#SearchModule'
+    },
+    {
         path: 'signup',
         loadChildren: 'src/app/sign-up/module#SignUpModule'
     },
@@ -17,6 +21,6 @@ export const routes: Routes = [
         path: 'customer-dashboard',
         loadChildren: 'src/app/customer-dashboard/module#CustomerDashboardModule'
     },
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: '', redirectTo: 'search', pathMatch: 'full' },
     { path: 'login/signup', redirectTo: 'signup'}
 ];
