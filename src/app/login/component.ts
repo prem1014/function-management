@@ -45,7 +45,11 @@ export class LoginComponent implements OnInit {
                 sessionStorage.setItem('token', data.token);
                 sessionStorage.setItem('user', JSON.stringify(data.payload.user));
                 this.api.saveLoggedInUser(data.payload.user);
-                this.router.navigateByUrl('/dashboard');
+                if (data.payload.user.role === 'provider') {
+                    this.router.navigateByUrl('/dashboard');
+                } else {
+                    this.router.navigateByUrl('/customer-dashboard');
+                }
             } else {
                 this.toaster.error(
                     {

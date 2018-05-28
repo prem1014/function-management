@@ -18,17 +18,17 @@ export class AuthGuard implements CanActivate {
         return this.checkLogin(url);
     }
     private checkLogin(url: string): boolean {
-        this.user = JSON.parse(sessionStorage.getItem('userInfo'));
+        this.user = JSON.parse(sessionStorage.getItem('user'));
         if (sessionStorage.getItem('isLoggedIn') === 'true' && this.user.role === 'provider') {
-            if (url === '/dashboard/add-new' || url === '/dashboard/view-booking') {
+            if (url === '/dashboard/add-new' || url === '/dashboard/view-booking' || url === '/dashboard/update') {
                 return true;
             }
         } else if (sessionStorage.getItem('isLoggedIn') === 'true' && this.user.role === 'consumer') {
-            if (url === '/dashboard/add-new' || url === '/dashboard/view-booking') {
-                this.router.navigate(['/401']);
+            if (url === '/customer-dashboard/add-customer-detail' || url === '/dashboard/view-booking') {
                 return true;
             } else {
-                return true;
+                this.router.navigate(['/401-error']);
+                return false;
             }
         }
         // Store the attempted URL for redirecting

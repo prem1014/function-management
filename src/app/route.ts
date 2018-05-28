@@ -17,6 +17,10 @@ export const routes: Routes = [
         path: 'customer-dashboard',
         loadChildren: 'src/app/customer-dashboard/module#CustomerDashboardModule'
     },
+    {
+        path: '401-error',
+        loadChildren: 'src/app/401/module#Error401Module'
+    },
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'login/signup', redirectTo: 'signup'}
 ];

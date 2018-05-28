@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { SignUpModel } from './data-model';
 import { APIService } from '../../app/_core/api-service';
@@ -13,9 +14,9 @@ import { ToasterService } from '../_core/toaster-service';
 
 export class SignUpComponent implements OnInit {
     private signUpForm: FormGroup;
-    public signupModel = new SignUpModel('', '', '', '', '');
+    public signupModel = new SignUpModel('', '', '', '', 'consumer');
     public loading: boolean;
-    constructor(private fb: FormBuilder, private api: APIService, private toaster: ToasterService) {
+    constructor(private fb: FormBuilder, private api: APIService, private toaster: ToasterService, private router: Router) {
         this.createSignUpForm();
     }
 
@@ -27,7 +28,8 @@ export class SignUpComponent implements OnInit {
             email: ['', Validators.required],
             mobile: ['', Validators.required],
             password: ['', Validators.required],
-            confirmPassword: ['', Validators.required]
+            confirmPassword: ['', Validators.required],
+            isServiceProvider: ['']
         });
     }
 
@@ -37,7 +39,9 @@ export class SignUpComponent implements OnInit {
         this.signupModel.email = this.signUpForm.value.email;
         this.signupModel.mobile = this.signUpForm.value.mobile;
         this.signupModel.password = this.signUpForm.value.password;
-        this.signupModel.role = 'provider';
+        if (this.signUpForm.value.isServiceProvider) {
+            this.signupModel.role = 'provider';
+        }
         this.api.signup(this.signupModel)
         .subscribe( (data: any) => {
             this.loading = false;
@@ -48,6 +52,9 @@ export class SignUpComponent implements OnInit {
                         message: data.message
                     }
                 );
+                setTimeout((d) => {
+                    this.router.navigateByUrl('/login');
+                }, 5000);
             } else {
                 this.toaster.error(
                     {

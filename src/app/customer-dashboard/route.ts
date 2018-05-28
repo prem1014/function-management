@@ -8,7 +8,7 @@ export const route: Routes = [
         children: [
             {
                 path: 'add-customer-detail',
-                //canActivate: [AuthGuard],
+                canActivate: [AuthGuard],
                 loadChildren: 'src/app/customer-dashboard/manage-customer/add-customer-detail/module#AddCustomerDetailModule'
             }
         ]
