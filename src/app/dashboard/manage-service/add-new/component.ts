@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { Service } from './service-model';
 import { APIService } from '../../../_core/api-service';
+import { ToasterService } from '../../../_core/toaster-service';
 
 @Component({
     selector: 'app-add-new',
@@ -10,8 +12,9 @@ import { APIService } from '../../../_core/api-service';
 export class AddNewComponent implements OnInit {
     public service = new Service();
     public serviceDetails = {id: '', name: ''};
+    public loading: boolean;
     @ViewChild('addService') addService;
-    constructor(private api: APIService) {
+    constructor(private api: APIService, private toaster: ToasterService) {
         this.service.serviceType = [
             {
                 id: 'taxi',
@@ -50,16 +53,33 @@ export class AddNewComponent implements OnInit {
     }
 
     public saveService(addService) {
+        this.loading = true;
         this.serviceDetails.id = this.serviceDetails.name + '_' + Math.floor(Math.random() * 20);
-        this.api.saveService(this.serviceDetails).subscribe((data: any) => {
-            if(data.success) {
+        this.api.saveService(this.serviceDetails).subscribe(
+            (data: any) => {
+            this.loading = false;
+            if (data.success) {
                 console.log(data);
-                alert(data.message);     
+               this.toaster.success({
+                   success: true,
+                   message: data.message
+               }) ;
                 this.addService.reset();
             } else {
-                alert(data.message);   
-            }    
-        });
+                this.toaster.error({
+                    error: true,
+                    message: data.message
+                }) ;
+            }
+        },
+        (error: any) => {
+            this.loading = false;
+            this.toaster.error({
+                error: true,
+                message: error.message
+            });
+        }
+    );
     }
 
     private getStateByCountryId(id): void {
