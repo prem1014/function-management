@@ -17,6 +17,11 @@
                     </div>  
                 </div>   
             </div>
+            <div class="row">
+                <div class="col-12">
+                    <app-search-result-list *ngIf="isDisplaySearchResult" [arrResult]="serachResult"></app-search-result-list>
+                </div>
+            </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-3">
 

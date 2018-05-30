@@ -43,5 +43,9 @@ export class APIService {
 
     public saveCustomerDetail(customerDetail) {
         return this.http.post(this.apiUrl + 'customer-detail',customerDetail);
-    }    
+    } 
+    
+    public searchServicesDetail(queryDetail) {
+        return this.http.post(this.apiUrl + 'search',queryDetail);
+    } 
 }
