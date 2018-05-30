@@ -2,21 +2,49 @@
     <div class="col-lg-2 col-md-2 col-sm-2 col-12 left-aside">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['add-new']"><i class="fas fa-cart-plus"></i>
+                <a class="nav-link" [routerLink]="['add-new']">
+                    <i class="fas fa-cart-plus"></i>
                     Add Service</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-pencil-alt"></i> Update Service</a>
+                <a class="nav-link" href="#">
+                    <i class="fas fa-pencil-alt"></i> Update Service</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-trash-alt"></i> Delete Service</a>
+                <a class="nav-link" href="#">
+                    <i class="fas fa-trash-alt"></i> Delete Service</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['view-booking']"><i class="fas fa-eye"> </i> View Booking</a>
+                <a class="nav-link" [routerLink]="['view-booking']">
+                    <i class="fas fa-eye"> </i> View Booking</a>
             </li>
         </ul>
     </div>
     <div class="col-lg-10 col-md-10 col-sm-10 col-12 right-aside">
+        <div class="row" *ngIf="activeRoute.children.length === 0">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+                <div class="tiles" style="background-color: #FF9800">
+                    <h4>Total Services</h4>
+                    <h2 style="font-size: 60px; color: white;" *ngIf="!loadingServiceDetails">{{serviceDetails.length}}</h2>
+                    <i class="fa fa-spinner fa-spin" *ngIf="loadingServiceDetails"></i>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+                <div class="tiles" style="background-color: #CDDC39">
+                    <h4>Total Booking</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+                <div class="tiles" style="background-color: #ffc107">
+                    <h4>Yearly Booking</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+                <div class="tiles" style="background-color: #FF5722">
+                    <h4>Monthly Boooking </h4>
+                </div>
+            </div>
+        </div>
         <router-outlet></router-outlet>
     </div>
     <!--div class="col-12">

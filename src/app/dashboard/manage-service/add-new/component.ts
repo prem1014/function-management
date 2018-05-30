@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Service } from './service-model';
 import { APIService } from '../../../_core/api-service';
@@ -14,7 +15,7 @@ export class AddNewComponent implements OnInit {
     public serviceDetails = {id: '', name: ''};
     public loading: boolean;
     @ViewChild('addService') addService;
-    constructor(private api: APIService, private toaster: ToasterService) {
+    constructor(private api: APIService, private toaster: ToasterService, private router: Router) {
         this.service.serviceType = [
             {
                 id: 'taxi',
@@ -78,8 +79,7 @@ export class AddNewComponent implements OnInit {
                 error: true,
                 message: error.message
             });
-        }
-    );
+        });
     }
 
     private getStateByCountryId(id): void {
@@ -95,5 +95,10 @@ export class AddNewComponent implements OnInit {
         .subscribe(data => {
             this.service.district = data;
         });
+    }
+
+    public back(e) {
+        e.preventDefault();
+        this.router.navigateByUrl('/dashboard');
     }
 }

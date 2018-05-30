@@ -5,6 +5,11 @@
   </button>
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav ml-auto">
+        <li class="nav-item" *ngIf="isLoggedIn && user.role === 'provider'">
+            <a class="nav-link" [routerLink]="['dashboard']">
+              Dashboard
+            </a>
+        </li>
       <li *ngIf="isLoggedIn" class="nav-item" style="border-right: 1px solid #fff;padding: 0px 7px;">
         <span style="font-weight: bold;color: #fff;">{{user.name}}</span>
         <br>
@@ -16,7 +21,7 @@
         </a>
       </li>
       <li class="nav-item" *ngIf="!isLoggedIn">
-        <a class="nav-link" href="#" (click)="logOut($event)">
+        <a class="nav-link" [routerLink]="['login']">
           <i class="fas fa-sign-in-alt"></i>Login
         </a>
       </li>
