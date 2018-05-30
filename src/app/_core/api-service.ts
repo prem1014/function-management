@@ -48,4 +48,9 @@ export class APIService {
     public getAllServices() {
         return this.http.get(this.apiUrl + 'provider');
     }
+
+    public searchServicesDetail(queryDetail) {
+        return this.http.post(this.apiUrl + 'search', queryDetail);
+    }
+
 }
