@@ -1,17 +1,39 @@
-<div class="row" *ngFor="let item of resultArr">
-    <div class="col-4">
-        {{ item.name }}
+<div class="booking-list" *ngFor="let item of resultArr">
+    <div class="row booking-list-heading-section" >
+        <div class="col-2">
+            {{ item.name }}
+        </div>
+        <div class="col-2">
+            {{ item.type }}
+        </div>
+        <div class="col-2">
+            {{ item.district }}
+        </div>
+        <div class="col-2">
+            {{ item.fullAdress }}
+        </div>
+        <div class="col-2">
+            {{ item.pinCode }}
+        </div>
+        <div class="col-2">
+            <button class="btn booking_primary_btn" type="button" name="bookNow" id="bookNow" (click) = "bookNow(item._id)">Book Now</button> 
+        </div>
     </div>
-    <div class="col-2">
-        {{ item.type }}
-    </div>
-    <div class="col-2">
-        {{ item.district }}
-    </div>
-    <div class="col-2">
-        {{ item.fullAdress }}
-    </div>
-    <div class="col-2">
-        {{ item.pinCode }}
+    <div class="booking-list-footer-section clearfix">
+        <ul class="booking-inclusions float-left">
+            <li class="active">More Details </li>
+            <li class="active">Terms and Condition</li>
+         </ul>   
+        <!--<div class="float-right booking-details">
+            <p id="booking_details0" class="booking-detail-tab float-left ">
+                <span>Flight Details</span>
+                <span class="booking-details-arrow "> </span>
+            </p>
+            <span class="float-left vertical-divide">|</span>
+            <p id="booking_details0" class="Fare-detail-tab float-left ">
+                <span>Fare Details</span>
+                <span class="booking-details-arrow "> </span>
+            </p>
+        </div>-->
     </div>
 </div>

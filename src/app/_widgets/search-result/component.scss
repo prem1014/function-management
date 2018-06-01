@@ -1,0 +1,106 @@
+.booking-list {
+    background:#ffffff;  
+    width: 100%;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+    border: solid 1px #d8eaff;
+    position:relative;
+    margin-bottom:27px;
+}
+
+
+.booking-list-heading-section {
+    padding: 20px 35px 5px 19px;
+}
+
+.booking-list-footer-section {
+    background: #fff;
+    position: relative;
+}
+
+.booking-list .booking-details {
+    color:#0055b7 !important; 
+    font-size:14px;
+    cursor:pointer;
+    height:37px; 
+    width:237px; 
+    position:relative;
+}
+
+.booking-detail-tab,.Fare-detail-tab {padding: 8px 8px; position:absolute; top:0px; background:#fff; }
+.booking-detail-tab{left:0px;border-right: 1px solid #fff;border-left: 1px solid #fff;}
+ /*Conversion impact changes*/
+.booking-detail-tab.active{ height: 40px; border-right: 1px solid #62a7f6; border-left: 1px solid #62a7f6; border-top: 1px solid #62a7f6; z-index: 1;}
+
+.booking-list-footer-section .vertical-divide {
+    font-size: 13px;
+    color: #979797;
+    line-height: 15px;
+    margin-top: 11px;
+}
+
+.booking-details-arrow, .booking-list:hover .booking-details-arrow {
+    background-position: -178px -11px;
+}
+
+.booking-details-arrow {
+    width: 9px;
+    height: 7px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 4px;
+}
+
+.booking-inclusions {
+    padding: 8px 15px 7px 12px;
+    width: 641px;
+}
+
+.booking-details-arrow {
+    background: url(//cssak.mmtcdn.com/air/pwa/v2/static/media/Listing_sprite.84cd5aba.png);
+    display: inline-block;
+}
+
+ul {
+    list-style: none;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+ol, ul {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.booking-inclusions li.active {
+    color: #000;
+    font-family: Lato-Bold,Arial,Helvetica,sans-serif;
+}
+.booking-inclusions li:first-child {
+    list-style: none;
+}
+.booking-inclusions li {
+    float: left;
+    list-style: disc;
+    margin-right: 25px;
+    white-space: nowrap;
+}
+
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.booking_primary_btn {
+    color: #fff;
+    background-color: #ff4d53;
+    border: 1px solid #db0006;
+}
