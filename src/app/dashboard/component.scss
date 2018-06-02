@@ -23,4 +23,18 @@ h2,h3,h4{
     padding: 5px;
     border-radius: 0px;
     box-shadow: 0px 1px 10px 1px #9a9a9a;
+    cursor: pointer;
+}
+
+.tiles-selected {
+    border: 2px solid grey;
+}
+
+.bottom-trianle-arrow {
+    width: 0;
+    margin: auto;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 19px 0px 19px;
+    border-color: grey transparent transparent transparent;
 }

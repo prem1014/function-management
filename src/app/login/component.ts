@@ -13,14 +13,20 @@ import { ToasterService } from '../_core/toaster-service';
 })
 
 export class LoginComponent implements OnInit {
-    private userInfo;
+    private user;
     private loginForm: FormGroup; // -- loiginForm is of type FormGroup
     public loginModel = new LoginModel('', '', '');
     public loading;
+    public isLoggedIn: boolean;
 
     constructor(private fb: FormBuilder, private api: APIService, private router: Router, private toaster: ToasterService) {
         this.createLoginForm();
         console.log(this.loginForm);
+        sessionStorage.removeItem('isLoggedIn');
+        sessionStorage.removeItem('user');
+        this.user = JSON.parse(sessionStorage.getItem('user'));
+        this.isLoggedIn = false;
+        this.api.saveLoggedInUser({});
     }
     ngOnInit() {}
 
@@ -36,14 +42,13 @@ export class LoginComponent implements OnInit {
         this.loginModel.id = this.loginForm.value.userId;
         this.loginModel.password = this.loginForm.value.password;
         this.loginModel.isAuthReq = true;
-        sessionStorage.setItem('isLoggedIn', 'true');
-        sessionStorage.setItem('userInfo', JSON.stringify(this.userInfo));
         this.api.authenticateUser(this.loginModel)
         .subscribe((data: any) => {
             this.loading = false;
             if (data.success) {
                 sessionStorage.setItem('token', data.token);
                 sessionStorage.setItem('user', JSON.stringify(data.payload.user));
+                sessionStorage.setItem('isLoggedIn', 'true');
                 this.api.saveLoggedInUser(data.payload.user);
                 if (data.payload.user.role === 'provider') {
                     this.router.navigateByUrl('/dashboard');

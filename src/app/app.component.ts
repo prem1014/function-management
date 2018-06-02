@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import * as _ from 'lodash';
 import { APIService } from './_core/api-service';
 
 @Component({
@@ -17,9 +18,11 @@ export class AppComponent {
       this.isLoggedIn = true;
     }
     this.api.loggedInUser$.subscribe( user => {
-      if (user) {
+      if (!_.isEmpty(user)) {
         this.user = user;
         this.isLoggedIn = true;
+      } else {
+        this.isLoggedIn = false;
       }
     });
   }

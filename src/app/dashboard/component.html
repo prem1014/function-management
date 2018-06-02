@@ -23,26 +23,99 @@
     <div class="col-lg-10 col-md-10 col-sm-10 col-12 right-aside">
         <div class="row" *ngIf="activeRoute.children.length === 0">
             <div class="col-lg-3 col-md-3 col-sm-3 col-12">
-                <div class="tiles" style="background-color: #FF9800">
+                <div class="tiles" [ngClass]="{'tiles-selected': isshowService}" style="background-color: #FF9800" (click)="showAll('services')">
                     <h4>Total Services</h4>
                     <h2 style="font-size: 60px; color: white;" *ngIf="!loadingServiceDetails">{{serviceDetails.length}}</h2>
                     <i class="fa fa-spinner fa-spin" *ngIf="loadingServiceDetails"></i>
                 </div>
+                <div [ngClass]="{'bottom-trianle-arrow': isshowService}"></div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-3 col-12">
-                <div class="tiles" style="background-color: #CDDC39">
+                <div class="tiles" [ngClass]="{'tiles-selected': isShowBooking}" style="background-color: #CDDC39" (click)="showAll('booking')">
                     <h4>Total Booking</h4>
+                    <h2 style="font-size: 60px; color: white;">{{bookingDetails.length}}</h2>
                 </div>
+                <div [ngClass]="{'bottom-trianle-arrow': isShowBooking}"></div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-3 col-12">
-                <div class="tiles" style="background-color: #ffc107">
+                <div class="tiles" [ngClass]="{'tiles-selected': isShowYBooking}" style="background-color: #ffc107" (click)="showAll('yrlyBooking')">
                     <h4>Yearly Booking</h4>
+                    <h2 style="font-size: 60px; color: white;">5</h2>
                 </div>
+                <div [ngClass]="{'bottom-trianle-arrow': isShowYBooking}"></div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-3 col-12">
-                <div class="tiles" style="background-color: #FF5722">
+                <div class="tiles" [ngClass]="{'tiles-selected': isShowMBooking}" style="background-color: #FF5722" (click)="showAll('monthlyBooking')">
                     <h4>Monthly Boooking </h4>
+                    <h2 style="font-size: 60px; color: white;">{{monthlyBooking.length}}</h2>
                 </div>
+                <div [ngClass]="{'bottom-trianle-arrow': isShowMBooking}"></div>
+            </div>
+        </div>
+        <hr *ngIf="activeRoute.children.length === 0">
+        <div class="row" *ngIf="activeRoute.children.length === 0">
+            <div class="col-12">
+                <h4>{{requestTypeHeader}}</h4>
+                <table class="table table-hover table-borderless" *ngIf="isshowService">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>City</th>
+                            <th>Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let d of serviceDetails">
+                            <td>{{d.name}}}</td>
+                            <td>{{d.district}}</td>
+                            <td>{{d.rate}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover table-borderless" *ngIf="isShowBooking">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>City</th>
+                            <th>Booked By</th>
+                            <th>Mobile</th>
+                            <th>Booking Date</th>
+                            <th>Total Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let d of bookingDetails">
+                            <td>{{d.name}}}</td>
+                            <td>{{d.district}}</td>
+                            <td>{{d.customerName}}</td>
+                            <td>{{d.mobile}}</td>
+                            <td>{{d.date}}</td>
+                            <td>{{d.totalPrice}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover table-borderless" *ngIf="isShowMBooking">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>City</th>
+                                <th>Booked By</th>
+                                <th>Mobile</th>
+                                <th>Booking Date</th>
+                                <th>Total Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let d of monthlyBooking">
+                                <td>{{d.name}}}</td>
+                                <td>{{d.district}}</td>
+                                <td>{{d.customerName}}</td>
+                                <td>{{d.mobile}}</td>
+                                <td>{{d.date}}</td>
+                                <td>{{d.totalPrice}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
             </div>
         </div>
         <router-outlet></router-outlet>
