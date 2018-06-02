@@ -25,6 +25,10 @@ export const routes: Routes = [
         path: '401-error',
         loadChildren: 'src/app/401/module#Error401Module'
     },
+    {
+        path: 'booking',
+        loadChildren: 'src/app/customer-dashboard/booking/module#BookingModule'
+    },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'login/signup', redirectTo: 'signup'}
 ];
