@@ -12,7 +12,7 @@ import { ToasterService } from '../../../_core/toaster-service';
 
 export class AddNewComponent implements OnInit {
     public service = new Service();
-    public serviceDetails = {id: '', name: ''};
+    public serviceDetails = {id: '', name: '', createdBy: ''};
     public loading: boolean;
     @ViewChild('addService') addService;
     constructor(private api: APIService, private toaster: ToasterService, private router: Router) {
@@ -56,6 +56,7 @@ export class AddNewComponent implements OnInit {
     public saveService(addService) {
         this.loading = true;
         this.serviceDetails.id = this.serviceDetails.name + '_' + Math.floor(Math.random() * 20);
+        this.serviceDetails.createdBy = JSON.parse(sessionStorage.getItem('user')).email;
         this.api.saveService(this.serviceDetails).subscribe(
             (data: any) => {
             this.loading = false;

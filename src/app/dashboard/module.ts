@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardComponent } from './component';
 import { route } from './route';
+import { ToasterModule } from '../_widgets/toaster/module';
 
 @NgModule({
     declarations: [DashboardComponent],
     imports: [
         CommonModule,
+        ToasterModule,
         RouterModule.forChild(route)
     ],
     exports: [RouterModule]

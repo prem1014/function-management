@@ -8,4 +8,5 @@ export class Service {
     public pinCode: string;
     public servicename: string;
     public fullAdress: string;
+    public createdVy: string;
 }

@@ -13,7 +13,9 @@ import { ToasterService } from '../_core/toaster-service';
 export class DashboardComponent implements OnInit {
     public serviceDetails;
     public loadingServiceDetails: boolean;
+    private user;
     constructor(private api: APIService, private toaster: ToasterService, public activeRoute: ActivatedRoute) {
+        this.user = JSON.parse(sessionStorage.getItem('user'));
     }
     ngOnInit() {
         this.getAllServices();
@@ -22,7 +24,7 @@ export class DashboardComponent implements OnInit {
 
     private getAllServices() {
         this.loadingServiceDetails = true;
-        this.api.getAllServices()
+        this.api.getAllServices(this.user.email)
         .subscribe(
             (response: any) => {
                 this.loadingServiceDetails = false;

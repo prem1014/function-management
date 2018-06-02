@@ -11,14 +11,13 @@ export class APIService {
     public user = new Subject<any>();
     public loggedInUser$ = this.user.asObservable();
     constructor(private http: HttpClient) {
-
     }
 
     public authenticateUser(user) {
         return this.http.post(this.apiUrl + 'login', user);
     }
     public saveService(serviceDetail) {
-        return this.http.post(this.apiUrl + 'provider', serviceDetail);
+        return this.http.post(this.apiUrl + 'provider' + '?token=' + sessionStorage.getItem('token'), serviceDetail);
     }
 
     public getService() {
@@ -26,11 +25,11 @@ export class APIService {
     }
 
     public getStateByCountryId(id) {
-        return this.http.get(this.apiUrl + 'state' + '/' + id);
+        return this.http.get(this.apiUrl + 'state' + '/' + id + '?token=' + sessionStorage.getItem('token'));
     }
 
     public getDistrictByStateId(id) {
-        return this.http.get(this.apiUrl + 'district' + '/' + id);
+        return this.http.get(this.apiUrl + 'district' + '/' + id + '?token=' + sessionStorage.getItem('token'));
     }
 
     public signup(usersDetails) {
@@ -42,11 +41,11 @@ export class APIService {
     }
 
     public saveCustomerDetail(customerDetail) {
-        return this.http.post(this.apiUrl + 'customer-detail', customerDetail);
+        return this.http.post(this.apiUrl + 'customer-detail' + '?token=' + sessionStorage.getItem('token'), customerDetail);
     }
 
-    public getAllServices() {
-        return this.http.get(this.apiUrl + 'provider');
+    public getAllServices(createdBy) {
+        return this.http.get(this.apiUrl + 'provider' + '/' + createdBy + '?token=' + sessionStorage.getItem('token'));
     }
 
     public searchServicesDetail(queryDetail) {
