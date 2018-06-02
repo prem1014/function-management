@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-12">
+        <a style="display: inline-block;" class="nav-link" href="#" (click)="back($event)"><i class="fas fa-chevron-circle-left"></i>Back</a>
+        <h3 class="text-center">Booking</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-1 col-md-1 col-sm-1">
+
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-10 col-12">
+        <form #addBooking="ngForm" (ngSubmit)="saveBooking();">
+            <div class="row form-group">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <label>Service Id:</label>                    
+                    <input type="text" class="form-control" name="serviceId" [(ngModel)]="serviceDetails._id" [disabled]="true"/>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <label>Service Type:</label>                    
+                    <input type="text" class="form-control" name="serviceType" [(ngModel)]="serviceDetails.type" [disabled]="true"/>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <label>Service Name:</label>
+                    <input type="text" class="form-control" name="serviceName" [(ngModel)]="serviceDetails.name" [disabled]="true"/>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <label>Service Diatrict:</label>
+                    <input type="text" class="form-control" name="serviceDistrict" [(ngModel)]="serviceDetails.district" [disabled]="true"/>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <label>Service Fulladress:</label>
+                    <input type="text" class="form-control" name="serviceFulladdress" [(ngModel)]="serviceDetails.fullAdress" [disabled]="true"/>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <label>Service Pincode:</label>
+                    <input type="text" class="form-control" name="servicePincode" [(ngModel)]="serviceDetails.pinCode" [disabled]="true"/>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-1">
+
+    </div>
+</div>

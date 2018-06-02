@@ -52,4 +52,7 @@ export class APIService {
         return this.http.post(this.apiUrl + 'search', queryDetail);
     }
 
+    public getServiceData(serviceId) {
+        return this.http.get(this.apiUrl + 'provider' + '/' + serviceId + '?token=' + sessionStorage.getItem('token'));
+    }
 }

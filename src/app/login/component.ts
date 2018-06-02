@@ -53,7 +53,11 @@ export class LoginComponent implements OnInit {
                 if (data.payload.user.role === 'provider') {
                     this.router.navigateByUrl('/dashboard');
                 } else {
-                    this.router.navigateByUrl('/customer-dashboard');
+                    if(sessionStorage.getItem("serviceId")!="") {
+                        this.router.navigateByUrl('/booking');
+                    } else {
+                        this.router.navigateByUrl('/customer-dashboard');    
+                    }
                 }
             } else {
                 this.toaster.error(
