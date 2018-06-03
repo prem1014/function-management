@@ -40,7 +40,7 @@
             <div class="col-lg-3 col-md-3 col-sm-3 col-12">
                 <div class="tiles" [ngClass]="{'tiles-selected': isShowYBooking}" style="background-color: #ffc107" (click)="showAll('yrlyBooking')">
                     <h4>Yearly Booking</h4>
-                    <h2 style="font-size: 60px; color: white;">5</h2>
+                    <h2 style="font-size: 60px; color: white;">{{yearlyBooking.length}}</h2>
                 </div>
                 <div [ngClass]="{'bottom-trianle-arrow': isShowYBooking}"></div>
             </div>
@@ -107,6 +107,28 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let d of monthlyBooking">
+                                <td>{{d.name}}}</td>
+                                <td>{{d.district}}</td>
+                                <td>{{d.customerName}}</td>
+                                <td>{{d.mobile}}</td>
+                                <td>{{d.date}}</td>
+                                <td>{{d.totalPrice}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-hover table-borderless" *ngIf="isShowYBooking">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>City</th>
+                                <th>Booked By</th>
+                                <th>Mobile</th>
+                                <th>Booking Date</th>
+                                <th>Total Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let d of yearlyBooking">
                                 <td>{{d.name}}}</td>
                                 <td>{{d.district}}</td>
                                 <td>{{d.customerName}}</td>

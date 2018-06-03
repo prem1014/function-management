@@ -18,10 +18,11 @@ export class DashboardComponent implements OnInit {
     public isshowService: boolean;
     public isShowBooking: boolean;
     public isShowYBooking: boolean;
-    public isShowMBooking: boolean;
+    public isShowMBooking: boolean;    
     public requestTypeHeader: string;
     public bookingDetails;
     public monthlyBooking;
+    public yearlyBooking;
     constructor(private api: APIService, private toaster: ToasterService, public router: Router, public activeRoute: ActivatedRoute) {
         this.user = JSON.parse(sessionStorage.getItem('user'));
     }
@@ -29,6 +30,7 @@ export class DashboardComponent implements OnInit {
         this.getAllServices();
         this.getAllBooking();
         this.monthlyBooking = Utility.getMonthlyTotal(this.bookingDetails, 6);
+        this.yearlyBooking = Utility.getYearlyTotal(this.bookingDetails,2018);
     }
 
     private getAllServices() {

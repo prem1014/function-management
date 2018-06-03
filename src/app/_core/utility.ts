@@ -16,4 +16,13 @@ export class Utility {
         });
         return _.compact(returnData);
     }
+    public static getYearlyTotal(data: any, currentYear) {
+        const returnData = _.map(data, (d) => {
+            const year = (new Date(d.date).getFullYear());
+            if (year === currentYear) {
+                return d;
+            }
+        });
+        return _.compact(returnData);
+    }
 }
